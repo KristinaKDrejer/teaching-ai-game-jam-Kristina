@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: TestPrompt
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
   PromptHeader: Hulubulu
-  IndicatorType: 3
+  IndicatorType: 2
+  Expandable: 1
+  NotPublicInfo: 0
+  CopyrightedData: 0
+  SubjectNotInformed: 0
+  Severity: 0
+  Checks:
+  - CheckText: I went home to discover that there was no home. Home was just in my
+      imagination...
+    Disapproved: 0
+    NotPublicInfo: 0
+    CopyrightedData: 0
+    SubjectNotInformed: 0
