@@ -23,17 +23,9 @@ public class AiCenter : MonoBehaviour
 
             Debug.Log("Severity: " + severity + ", Score: " + severityScore.ToString("F2"));
 
-            scoreUI.UpdateScore(severityScore);
+            ScoreUI.Instance.UpdateScore(severityScore);
         }
-
-        
-
     }
-
-    
-
-  
-
     private float CalculateSeverityScore(int severity)
     {
         severity = Math.Clamp(severity, 0, 3);
