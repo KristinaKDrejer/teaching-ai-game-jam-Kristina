@@ -183,7 +183,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 7
+  m_LinearDamping: 1
   m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -319,8 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb171b8456ef87449c78ca0b11e064e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  MaxSpeed: 75
-  ImpulseMultiplier: 0.2
+  MaxSpeed: 1
   clampLength: 5
 --- !u!1 &1038910151
 GameObject:
