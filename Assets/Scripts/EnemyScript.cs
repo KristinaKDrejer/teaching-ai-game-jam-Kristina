@@ -1,20 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyFactory))]
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject EnemyPrefab;
+    private EnemyFactory _enemyFactory;
 
-    [SerializeField]
-    private float enemyInterval = 3.5f;
+    [SerializeField] private float _startInterval = 3.5f;
+    private float _enemyInterval;
+    private float _intervalDecreaseRate = 0.01f;
+    private float _minInterval = 2f;
+
+
+
+    private void Awake()
+    {
+        _enemyFactory = GetComponent<EnemyFactory>();
+    }
 
     void Start()
     {
-        StartCoroutine(spawnEnemy(enemyInterval, EnemyPrefab));
+        _enemyInterval = _startInterval;
+        StartCoroutine(SpawnEnemy(_enemyInterval));
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject Enemy)
+    private IEnumerator SpawnEnemy(float interval)
     {
         yield return new WaitForSeconds(interval);
 
@@ -56,8 +66,9 @@ public class EnemySpawner : MonoBehaviour
             new Vector3(x, y, cam.nearClipPlane + 5f)
         );
 
-        Instantiate(Enemy, spawnPos, Quaternion.identity);
+        _enemyFactory.CreateEnemy(_enemyFactory.GetRandomEnemy(), spawnPos);
 
-        StartCoroutine(spawnEnemy(interval, Enemy));
+        _enemyInterval = Mathf.Max(_minInterval, _enemyInterval - _intervalDecreaseRate);
+        StartCoroutine(SpawnEnemy(_enemyInterval));
     }
 }
