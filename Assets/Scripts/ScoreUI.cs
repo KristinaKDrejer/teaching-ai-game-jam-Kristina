@@ -66,5 +66,13 @@ public class ScoreUI : MonoBehaviour
         }
 
 
+
+    }
+
+    public void UpdateScore(float change)
+    {
+
+        companyValue += change;
+        UpdateUI();
     }
 }
