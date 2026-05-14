@@ -30,6 +30,11 @@ public class PlayerAttack : MonoBehaviour
         if (_lastAttacked < _cooldownTime) return;
 
         _lastAttacked = 0;
+
+        //New add by Kristina
+        AudioFeedback.Instance.PlayScissors();
+        //New ended
+
         _animationController.PlayAnimationClip(out float time, _attackAnimation);
 
         await System.Threading.Tasks.Task.Delay((int)(time * 1000));

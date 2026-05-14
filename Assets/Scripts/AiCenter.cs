@@ -56,6 +56,17 @@ public class AiCenter : MonoBehaviour
 
                 Debug.Log("Severity: " + severity + ", Score: " + severityScore.ToString("F2"));
 
+                //New add by Kristina
+                if (severity == 0)
+                {
+                    AudioFeedback.Instance.PlaySafeReachedAI();
+                }
+                else
+                {
+                    AudioFeedback.Instance.PlayBadReachedAI();
+                }
+                //New ended
+
                 ScoreUI.Instance.UpdateScore(severityScore);
                 UpdateSize(GetSizeChange(severity));
             }

@@ -25,6 +25,17 @@ public class Enemy : MonoBehaviour
                 float severityScore = CalculateSeverityScore(severity);
 
                 Debug.Log("Severity: " + severity + ", Score: " + severityScore.ToString("F2"));
+                
+                //New add by Kristina
+                if (severity == 0)
+                {
+                    AudioFeedback.Instance.PlayWrongDestroy();
+                }
+                else
+                {
+                    AudioFeedback.Instance.PlayCorrectDestroy();
+                }
+                //New ended
 
                 ScoreUI.Instance.UpdateScore(severityScore);
             }
